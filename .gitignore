@@ -8,9 +8,7 @@ __pycache__/
 /data/output/* 
 
 #key
-/conf/gcp/*.json
-/conf/openai/key.json
-
+credential*
 
 # Distribution / packaging
 .Python
@@ -100,3 +98,6 @@ notebooks/
 
 #vscode
 .vscode
+
+#GCP
+*.Identifier
