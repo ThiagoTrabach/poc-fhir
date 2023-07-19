@@ -43,27 +43,27 @@ def create_patient(
     service_name = "healthcare"
     client = discovery.build(service_name, api_version)
 
-     # Set up FHIR store information
+    # Set up FHIR store information
     fhir_store_parent = f"projects/{project_id}/locations/{location}/datasets/{dataset_id}"
     fhir_store_name = f"{fhir_store_parent}/fhirStores/{fhir_store_id}"
 
-     # Set up patient body
+    # Set up patient body
     patient_body = patient_to_create
 
-     # Create the request to create the patient
+    # Create the request to create the patient
     request = client.projects().locations().datasets().fhirStores().fhir().create(
         parent=fhir_store_name,
         type="Patient",
         body=patient_body
     )
 
-     # Set required headers
+    # Set required headers
     request.headers["content-type"] = "application/fhir+json;charset=utf-8"
 
-     # Execute the request
+    # Execute the request
     response = request.execute()
 
-     # Print the ID of the created patient
+    # Print the ID of the created patient
     print(f"Created Patient resource with ID {response['id']}")
     return response
 

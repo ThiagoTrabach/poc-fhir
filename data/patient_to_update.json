@@ -1,0 +1,8 @@
+{
+    "name": [{"use": "official", "family": "Johnny", "given": ["Doe"]}],
+    "gender": "male",
+    "birthDate": "1990-05-10",
+    "resourceType": "Patient",
+    "id": "fab517e4-e5fc-4aac-98c3-2a39d5668542",
+    "active": true
+}
