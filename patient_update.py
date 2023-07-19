@@ -14,7 +14,7 @@ def main():
     dataset_id = os.environ.get('DATASET_ID')
     fhir_store_id = os.environ.get('FHIR_STORE_ID')
 
-     # Import patient data from JSON file
+    # Import patient data from JSON file
     patient_to_update = import_json_to_dictionary('./data/patient_to_update.json')
     
      # Update the patient
@@ -80,7 +80,7 @@ def update_resource(
     # Execute the request
     response = request.execute()
 
-    # Print the ID of the created patient
+    # Print the ID of the updated patient
     print(f"Updated {resource_type} resource with ID {resource_id}:\n {json.dumps(response, indent=2)}")
     return response
 
