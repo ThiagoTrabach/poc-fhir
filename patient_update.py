@@ -13,8 +13,10 @@ def main():
     location = os.environ.get('LOCATION')
     dataset_id = os.environ.get('DATASET_ID')
     fhir_store_id = os.environ.get('FHIR_STORE_ID')
+
      # Import patient data from JSON file
     patient_to_update = import_json_to_dictionary('./data/patient_to_update.json')
+    
      # Update the patient
     update_resource(
         project_id,
