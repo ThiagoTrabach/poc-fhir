@@ -1,5 +1,28 @@
-# Imports the types Dict and Any for runtime type hints.
 from typing import Any, Dict  # noqa: E402
+from googleapiclient import discovery
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+project_id = os.environ.get('PROJECT_ID')
+location = os.environ.get('LOCATION')
+dataset_id = os.environ.get('DATASET_ID')
+fhir_store_id = os.environ.get('FHIR_STORE_ID')
+
+
+
+def main():
+
+    patient_to_create = {
+        "name": [{"use": "official", "family": "Thiago", "given": ["Trabach"]}],
+        "gender": "male",
+        "birthDate": "1988-01-18",
+        "resourceType": "Patient",
+    }
+
+
+    create_patient(project_id, location, dataset_id, fhir_store_id, patient_to_create)
 
 
 def create_patient(
@@ -7,6 +30,7 @@ def create_patient(
     location: str,
     dataset_id: str,
     fhir_store_id: str,
+    patient_to_create: dict
 ) -> Dict[str, Any]:
     """Creates a new Patient resource in a FHIR store.
 
@@ -28,31 +52,21 @@ def create_patient(
       A dict representing the created Patient resource.
     """
     # Imports the Google API Discovery Service.
-    from googleapiclient import discovery
+  
 
-    api_version = "v1"
+    api_version = "v1"  
     service_name = "healthcare"
 
     # Returns an authorized API client by discovering the Healthcare API
     # and using GOOGLE_APPLICATION_CREDENTIALS environment variable.
     client = discovery.build(service_name, api_version)
 
-    # TODO(developer): Uncomment these lines and replace with your values.
-    # project_id = 'my-project'
-    # location = 'us-central1'
-    # dataset_id = 'my-dataset'
-    # fhir_store_id = 'my-fhir-store'
     fhir_store_parent = (
         f"projects/{project_id}/locations/{location}/datasets/{dataset_id}"
     )
     fhir_store_name = f"{fhir_store_parent}/fhirStores/{fhir_store_id}"
 
-    patient_body = {
-        "name": [{"use": "official", "family": "Smith", "given": ["Darcy"]}],
-        "gender": "female",
-        "birthDate": "1970-01-01",
-        "resourceType": "Patient",
-    }
+    patient_body = patient_to_create
 
     request = (
         client.projects()
@@ -68,3 +82,7 @@ def create_patient(
 
     print(f"Created Patient resource with ID {response['id']}")
     return response
+
+
+if __name__ == '__main__':
+    main()
