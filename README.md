@@ -1,5 +1,5 @@
 # About
-Sample project to create, update, patch, view, list, retrieve, and delete FHIR resources trough Google Healtcare API
+Sample project to create, update, patch, view, list, retrieve, and delete FHIR resources through Google Healtcare API
 
 # Reference
 - Authentication:

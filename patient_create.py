@@ -37,6 +37,7 @@ def create_patient(
      Returns:
         A dictionary representing the created Patient resource.
     """
+    
     # Set up API client
     api_version = "v1"
     service_name = "healthcare"
