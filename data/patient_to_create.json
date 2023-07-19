@@ -1,0 +1,6 @@
+{
+    "name": [{"use": "official", "family": "John", "given": ["Doe"]}],
+    "gender": "male",
+    "birthDate": "1900-01-01",
+    "resourceType": "Patient"
+}

@@ -2,6 +2,7 @@ from typing import Any, Dict  # noqa: E402
 from googleapiclient import discovery
 from dotenv import load_dotenv
 import os
+from utils import import_json_to_dictionary
 
 load_dotenv()
 
@@ -14,14 +15,7 @@ fhir_store_id = os.environ.get('FHIR_STORE_ID')
 
 def main():
 
-    patient_to_create = {
-        "name": [{"use": "official", "family": "Thiago", "given": ["Trabach"]}],
-        "gender": "male",
-        "birthDate": "1988-01-18",
-        "resourceType": "Patient",
-    }
-
-
+    patient_to_create = import_json_to_dictionary('./data/patient_to_create.json')
     create_patient(project_id, location, dataset_id, fhir_store_id, patient_to_create)
 
 
