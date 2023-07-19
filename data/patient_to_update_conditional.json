@@ -1,0 +1,13 @@
+{
+    "identifier": [
+        {
+            "text": "Social Security Number",
+            "value": "999-87-3391"
+        }
+    ],
+    "name": [{"use": "official", "family": "Pilar", "given": ["Melgar"]}],
+    "gender": "male",
+    "birthDate": "1900-01-10",
+    "resourceType": "Patient",
+    "active": true
+}
