@@ -5,6 +5,8 @@ import json
 from google.auth.transport import requests
 from google.oauth2 import service_account
 
+# TODO: fix error 400
+# Reference: https://github.com/GoogleCloudPlatform/python-docs-samples/blob/fe75eefc988f1f4e5717a66e3a9a855234f42c13/healthcare/api-client/v1beta1/fhir/fhir_resources
 
 load_dotenv()
 
