@@ -13,7 +13,7 @@ def main():
     fhir_store_id = os.environ.get('FHIR_STORE_ID')
     
     resource_type = 'Patient' #TODO:move to parameter
-    resource_id = '04b4b75b-6a20-4f03-9808-63f9af4e2dd1' #TODO:move to parameter
+    resource_id = '02594d88-f264-42a9-9258-527486a98775' #TODO:move to parameter
 
     # Delete the resource
     delete_resource(
